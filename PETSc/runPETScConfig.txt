@@ -1,43 +1,49 @@
 ./configure PETSC_ARCH=test_PETSc \
---with-cc=mpicc \
---with-cxx=mpicxx \
---with-fc=mpif90 \
---CFLAGS="-O2 -xHost -ftz -fp-speculation=safe -fp-model source -fPIC"  \
---CXXFLAGS="-O2 -xHost -ftz -fp-speculation=safe -fp-model source -fPIC"  \
---FFLAGS="-O2 -xHost -ftz      -fp-speculation=safe -fp-model source -fPIC"  \
---with-blas-lapack-dir=$MKLROOT/lib/intel64 \
---download-metis=1 \
---download-parmetis=1 \
---download-sowing=1 \
+PETSC_ARCH=arch_JURECA \
+--CFLAGS=-O2 -xMIC-AVX512 -ftz -fp-speculation=safe -fp-model source -fPIC \
+--CXXFLAGS=-O2 -xMIC-AVX512 -ftz -fp-speculation=safe -fp-model source -fPIC \
+--FFLAGS=-O2 -xMIC-AVX512 -ftz -fp-speculation=safe -fp-model source -fPIC \
+--download-chaco-shared=0 \
+--download-chaco=1 \
+--download-hdf5-shared=0 \
 --download-hdf5=1 \
---download-metis-shared=0  \
---download-parmetis-shared=0  \
---download-hdf5-shared=0  
+--download-hypre-shared=0 \
+--download-hypre=1 \
+--download-metis-shared=0 \
+--download-metis=1 \
+--download-parmetis-shared=0 \
+--download-parmetis=1 \
+--download-parms-shared=0 \
+--download-parms=1 \
+--download-spai-shared=0 \
+--download-spai=1 \
+--download-spooles-shared=0 \
+--download-spooles=1 \
+--download-sundials-shared=0 \
+--download-sundials=1 \
+--download-superlu-shared=0 \
+--download-superlu=1 \
+--download-superlu_dist-shared=0 \
+--download-superlu_dist=1 \
+--download-triangle=1 \
+--with-blaslapack-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a.1/mkl/lib/intel64/libmkl_intel_lp64.a,libmkl_sequential.a,libmkl_core.a] \
+--with-build-step-np=64 \
+--with-c++-support \
+--with-cc=mpicc \
+--with-cxx-dialect=C++11 \
+--with-cxx=mpicxx \
 --with-debugging=0 \
---with-shared-libraries=0 \
---with-x=0 \
+--with-fc=mpif90 \
+--with-fftw-include=/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a.1/mkl/include/fftw \
+--with-fftw-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a.1/mkl/lib/intel64/libfftw3xc_intel_pic.a,libfftw3x_cdft_lp64_pic.a,libmkl_cdft_core.a,libmkl_blacs_intelmpi_lp64.a,libmkl_intel_lp64.a,libmkl_sequential.a,libmkl_core.a] \
+--with-fftw=1 \
+--with-gnu-compilers=0 \
 --with-large-file-io \
---with-c2html=0
-#--with-fftw=1  \
-#--with-fftw-dir=$MKLROOT/lib/intel64 \
-#--with-fftw-include=/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a/mkl/include  \
-#--with-fftw-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a/mkl/lib/intel64/libfftw3xc_intel_pic.a,
-#		libfftw3x_cdft_lp64_pic.a,\
-#		libmkl_cdft_core.a,\
-#		libmkl_blacs_intelmpi_lp64.a,\
-#		libmkl_intel_lp64.a,\
-#		libmkl_sequential.a,\
-#		libmkl_core.a]\
-#--with-scalapack=1  \ 
-#--with-scalapack-include=/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a/mkl/include/ \
-#--with-scalapack-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a/mkl/lib/intel64/libmkl_scalapack_lp64.a,intel64/libmkl_blacs_intelmpi_lp64.a,libmkl_intel_lp64.a,libmkl_sequential.a,intel64/libmkl_core.a] \
-#--with-blas-lapack-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a/mkl/lib/intel64/libmkl_intel_lp64.a,\
-#			intel64/libmkl_sequential.a,libmkl_core.a,\
-#			intel64/libmkl_blacs_intelmpi_lp64.a,\
-#			intel64/libmkl_blas95_lp64.a]\
-#
-#--with-blas-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a/mkl/lib/intel64/libmkl_intel_lp64.a,\
-#		intel64/libmkl_sequential.a,\
-#		intel64/libmkl_core.a,\
-#		intel64/libmkl_blacs_intelmpi_lp64.a,\ 
-#		intel64/libmkl_blas95_lp64.a] \
+--with-mpi=1 \
+--with-pic=1 \
+--with-scalapack-include=/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a.1/mkl/include \
+--with-scalapack-lib=[/usr/local/software/jurecabooster/Stages/2019a/software/imkl/2019.3.199-ipsmpi-2019a.1/mkl/lib/intel64/libmkl_scalapack_lp64.a,libmkl_blacs_intelmpi_lp64.a,libmkl_intel_lp64.a,libmkl_sequential.a,libmkl_core.a] \
+--with-scalapack=1 \
+#--with-shared-libraries=0 \
+--with-windows-graphics=0 \
+--with-x=0 \
